@@ -1,24 +1,36 @@
-import {View, Pressable, Text, StyleSheet} from 'react-native';
+import { useState } from 'react';
+import { View, Pressable, Text, StyleSheet, Alert, Button } from 'react-native';
 
 const Home = (props) => {
-    // Trong props sẽ có navigation được nhận từ Stack.Screen ở App.js
     const navigation = props.navigation;
-
-    const chuyenMH = (ten_mh) => {
-        navigation.navigate(ten_mh);
+    const chuyenMH = (ten_mh, data) => {
+        navigation.navigate(ten_mh, data);
     }
-
     return (
-        <View>
-            <Text>Chào mừng đến với ứng dụng ABCXYZ</Text>
-            <Pressable onPress={() => chuyenMH('Info')}>
-                <Text>Vào trang Thông tin</Text>
-            </Pressable>
-            <Pressable onPress={() => chuyenMH('UserList')}>
-                <Text>Vào trang Danh sách</Text>
+        <View style={styles.inline}>
+            <Pressable style={styles.styleInput} onPress={() => chuyenMH('Profile')}>
+                <Text>Vào trang Thông Profile</Text>
             </Pressable>
         </View>
     );
 };
 
 export default Home;
+const styles = StyleSheet.create({
+    inline: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        margin: 10,
+        marginTop: 40,
+    },
+    styleInput: {
+        width: 200,
+        height: 40,
+        borderRadius: 10,
+        backgroundColor: 'red',
+        padding: 5,
+        marginRight: 10,
+        alignContent: "center",
+        alignSelf: "center"
+    }
+});

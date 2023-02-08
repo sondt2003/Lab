@@ -4,6 +4,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './src/screens/Home';
 import UserList from './src/screens/UserList';
 import Info from './src/screens/Info';
+import Profile from './src/screens/Profile';
+import Editprofile from './src/screens/Editprofile';
+import { StyleSheet, View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 // Các màn hình như sau
@@ -14,17 +17,17 @@ const Stack = createNativeStackNavigator();
 // Khi Màn hình được truyền qua component trong Stack.Screen thì các màn hình đó
 // sẽ nhận được props có tên là navigation, trong đó navigation.navigate('tên màn hình')
 // giúp di chuyển sang màn hình khác
-
 const App = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name='Home' component={Home} />
                 <Stack.Screen name='Info' component={Info} />
+                <Stack.Screen name='Profile' component={Profile} />
                 <Stack.Screen name='UserList' component={UserList} />
+                <Stack.Screen name='EditProFile' component={Editprofile} />
             </Stack.Navigator>
         </NavigationContainer>
     );
 };
-
 export default App;
