@@ -53,7 +53,7 @@ const EditProFile = (props) => {
                     placeholder="Email"
                 />
             </View>
-                <Button title='Hủy' style={styles.styleInput} onPress={() => chuyenMH("Home")}></Button>
+                <Button title='Hủy' style={styles.styleInput} onPress={() => chuyenMH("Home",{isTen:isTen,isTuoi:isTuoi,isDiaChi:isDiaChi,isSdt:isSdt,isEmail:isEmail})}></Button>
                 <Button title='Lưu' style={styles.styleInput} onPress={() => chuyenMH("Profile",{isTen:isTen,isTuoi:isTuoi,isDiaChi:isDiaChi,isSdt:isSdt,isEmail:isEmail})}></Button>
         </View>
     )

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, TextInput, StyleSheet, Button, Alert } from 'react-native';
 
 
@@ -8,20 +8,21 @@ const Profile = (props) => {
         navigation.navigate(ten_mh, data);
     }
     const route = props.route;
-    let [isTen, setTen] = useState(route.params?.isTen || "Đặng Trường Sơn");
-    let [isTuoi, setTuoi] = useState(route.params?.isTuoi || "20");
-    let [isDiaChi, setDiaChi] = useState(route.params?.isDiaChi || "Thái Nguyên");
-    let [isSdt, setSdt] = useState(route.params?.isSdt || "0368722770");
-    let [isEmail, setEmail] = useState(route.params?.isEmail || "sondtph22824@fpt.edu.vn");
-    let [isCheck, setCheck] = useState(false);
+    let [isTen, setTen] = useState();
+    let [isTuoi, setTuoi] = useState();
+    let [isDiaChi, setDiaChi] = useState();
+    let [isSdt, setSdt] = useState();
+    let [isEmail, setEmail] = useState();
 
     const getData = () => {
-        setTen(route.params?.isTen|| "");
-        setTuoi(route.params?.isTuoi|| "");
-        setDiaChi(route.params?.isDiaChi|| "");
-        setSdt(route.params?.isSdt|| "");
-        setEmail(route.params?.isEmail|| "");
+        setTen(route.params?.isTen || "");
+        setTuoi(route.params?.isTuoi || "");
+        setDiaChi(route.params?.isDiaChi || "");
+        setSdt(route.params?.isSdt || "");
+        setEmail(route.params?.isEmail || "");
     }
+    useEffect(() => getData(), [route.params?.isTen || "",route.params?.isTuoi || "",route.params?.isDiaChi || "",route.params?.isSdt || "",route.params?.isEmail || ""]);
+
     return (
         <View>
             <View style={styles.inline}>
@@ -40,7 +41,6 @@ const Profile = (props) => {
             <View style={styles.inline}>
                 <Text style={styles.styleInput}>{isEmail}</Text>
             </View>
-            <Button title='Bấm' onPress={() => getData()} />
         </View>
     );
 };
